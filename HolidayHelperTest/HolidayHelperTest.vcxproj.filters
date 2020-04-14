@@ -1,25 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{624c9f75-76c7-4a0b-9bc2-703bb916cff5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    <Filter Include="Persistence">
+      <UniqueIdentifier>{e66d8a0f-373d-4248-aef7-0304b7985be7}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    <Filter Include="Data">
+      <UniqueIdentifier>{ca5b7471-3176-42ff-8a06-a39e048cb4a4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presentation">
+      <UniqueIdentifier>{02ca4aca-364b-478c-9647-8e2b094cc802}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{45d517b0-d2f7-41c0-8102-a5da3ceaf9d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Dataset">
+      <UniqueIdentifier>{2e9b62cc-511a-4645-8db8-75752911bec4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HolidayHelperTest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="DataSetTest.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="DataSet.cpp">
+      <Filter>Data\Dataset</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -26,11 +26,16 @@ namespace HolidayHelperTest
 
 		TEST_METHOD(TestSelect)
 		{
+			//Set up a DataSet of vectors with 2, 4 and 1 elements
 			DataSet<vector<int>> vecIntData({ {1,2}, {1,2,3,4}, {1} });
+
+			//Create a dataset of expected values
 			DataSet<int> expected({ 2, 4, 1 });
+
+			//Select the size from the dataset of arrays
 			auto retVal = vecIntData.Select<int>([](vector<int> x){ return (int)x.size(); });
 
-			Assert::IsTrue(retVal == expected);
+			Assert::AreEqual(expected, retVal);
 		}
 	};
 }

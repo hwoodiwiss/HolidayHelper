@@ -86,10 +86,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Database.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="SerializableGuid.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Database.h" />
     <ClInclude Include="Dataset.h" />
     <ClInclude Include="ISerializable.h" />
     <ClInclude Include="SerializableGuid.h" />

@@ -5,6 +5,9 @@
     <ClCompile Include="SerializableGuid.cpp">
       <Filter>Utils\Serialization</Filter>
     </ClCompile>
+    <ClCompile Include="Database.cpp">
+      <Filter>Persistence\Database</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utils">
@@ -16,8 +19,23 @@
     <Filter Include="pch">
       <UniqueIdentifier>{c1a881a1-570a-4cae-a31f-eddeaff81b27}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utils\DataSet">
+    <Filter Include="Presentation">
+      <UniqueIdentifier>{cb1d86b3-b4dc-489d-916e-66dc688c3528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic">
+      <UniqueIdentifier>{1679860f-8394-410c-acf3-d1c74ca66332}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence">
+      <UniqueIdentifier>{0227c26a-08b6-4993-95c1-387ec048e083}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{1c144ebc-516f-402f-a258-df487bb65081}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\DataSet">
       <UniqueIdentifier>{f1142868-d2e6-4489-8088-31c1d74c8eba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence\Database">
+      <UniqueIdentifier>{8bf56bba-ab17-4305-bc02-6b00776bfe82}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +49,10 @@
       <Filter>Utils\Serialization</Filter>
     </ClInclude>
     <ClInclude Include="Dataset.h">
-      <Filter>Utils\DataSet</Filter>
+      <Filter>Data\DataSet</Filter>
+    </ClInclude>
+    <ClInclude Include="Database.h">
+      <Filter>Persistence\Database</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

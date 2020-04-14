@@ -92,8 +92,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="DataSetTest.cpp" />
-    <ClCompile Include="HolidayHelperTest.cpp" />
+    <ClCompile Include="DataSet.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

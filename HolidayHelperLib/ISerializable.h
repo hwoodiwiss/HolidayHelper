@@ -1,11 +1,12 @@
 #pragma once
 #include <iostream>
+#include "Shared.h"
 
 namespace HolidayHelper::Utils::Serialization
 {
 
 	//Abstract interface for serializing objects to disk
-	class ISerializable
+	class DllExport ISerializable
 	{
 	public:
 		//Pure virtual functions that have to be overloaded in derived classes

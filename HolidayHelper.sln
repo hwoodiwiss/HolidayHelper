@@ -4,10 +4,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.29728.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HolidayHelperApp", "HolidayHelperApp\HolidayHelperApp.vcxproj", "{C7A8AFFA-F1BE-4810-A7F7-7AA28A95A039}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6BC4F60F-0559-4103-ADEE-A027652C3470} = {6BC4F60F-0559-4103-ADEE-A027652C3470}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HolidayHelperLib", "HolidayHelperLib\HolidayHelperLib.vcxproj", "{6BC4F60F-0559-4103-ADEE-A027652C3470}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HolidayHelperTest", "HolidayHelperTest\HolidayHelperTest.vcxproj", "{A3F3D3AE-1A26-44C6-9061-B44C20114442}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6BC4F60F-0559-4103-ADEE-A027652C3470} = {6BC4F60F-0559-4103-ADEE-A027652C3470}
+		{C7A8AFFA-F1BE-4810-A7F7-7AA28A95A039} = {C7A8AFFA-F1BE-4810-A7F7-7AA28A95A039}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

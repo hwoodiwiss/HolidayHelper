@@ -2,6 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="SerializableGuid.cpp">
+      <Filter>Utils\Serialization</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utils">
@@ -10,10 +13,25 @@
     <Filter Include="Utils\Serialization">
       <UniqueIdentifier>{80ea3fc4-bfec-4edc-a047-02db3990f144}</UniqueIdentifier>
     </Filter>
+    <Filter Include="pch">
+      <UniqueIdentifier>{c1a881a1-570a-4cae-a31f-eddeaff81b27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\DataSet">
+      <UniqueIdentifier>{f1142868-d2e6-4489-8088-31c1d74c8eba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ISerializable.h">
       <Filter>Utils\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Shared.h">
+      <Filter>pch</Filter>
+    </ClInclude>
+    <ClInclude Include="SerializableGuid.h">
+      <Filter>Utils\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="Dataset.h">
+      <Filter>Utils\DataSet</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

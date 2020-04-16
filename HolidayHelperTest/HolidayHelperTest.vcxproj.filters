@@ -48,7 +48,7 @@
     <ClCompile Include="Activity.cpp">
       <Filter>Data\Activity</Filter>
     </ClCompile>
-    <ClCompile Include="FinanceCaclulations.cpp">
+    <ClCompile Include="FinanceCalculations.cpp">
       <Filter>Logic</Filter>
     </ClCompile>
   </ItemGroup>

@@ -93,7 +93,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Activity.cpp" />
-    <ClCompile Include="FinanceCaclulations.cpp" />
+    <ClCompile Include="FinanceCalculations.cpp" />
     <ClCompile Include="DataSet.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Serializable.cpp" />

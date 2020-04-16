@@ -19,10 +19,37 @@
     <Filter Include="Data\Dataset">
       <UniqueIdentifier>{2e9b62cc-511a-4645-8db8-75752911bec4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utils\Input">
+      <UniqueIdentifier>{e9a32ed2-8f5e-4c99-87ac-f1fdceff22ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence\Serialization">
+      <UniqueIdentifier>{e12367a2-b284-445d-aa8a-906c78f368ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence\Serialization\Serializable">
+      <UniqueIdentifier>{49d98297-bfff-457f-85fb-da59c2a6bdcc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Activity">
+      <UniqueIdentifier>{814297bc-d2ff-4db9-b47d-338055d1aefe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Location">
+      <UniqueIdentifier>{9afe01f7-fd73-451d-97dc-28d0abf98938}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataSet.cpp">
       <Filter>Data\Dataset</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Utils\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Serializable.cpp">
+      <Filter>Persistence\Serialization\Serializable</Filter>
+    </ClCompile>
+    <ClCompile Include="Activity.cpp">
+      <Filter>Data\Activity</Filter>
+    </ClCompile>
+    <ClCompile Include="FinanceCaclulations.cpp">
+      <Filter>Logic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

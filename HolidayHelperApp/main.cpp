@@ -1,7 +1,7 @@
 #include <HolidayHelperLib/SerializableGuid.h>
+#include <HolidayHelperLib/Database.h>
 #include <Windows.h>
 
-using namespace HolidayHelper::Utils;
 
 int main(int argC, char** argV)
 {
@@ -11,5 +11,8 @@ int main(int argC, char** argV)
 		return 1;
 	}
 
-	Serialization::SerializableGuid sGuid = guid;
+
+
+
+	
 }

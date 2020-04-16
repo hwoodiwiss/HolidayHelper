@@ -3,21 +3,42 @@
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="SerializableGuid.cpp">
-      <Filter>Utils\Serialization</Filter>
+      <Filter>Persistence\Serialization</Filter>
     </ClCompile>
-    <ClCompile Include="Database.cpp">
-      <Filter>Persistence\Database</Filter>
+    <ClCompile Include="Input.cpp">
+      <Filter>Utils\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Activity.cpp">
+      <Filter>Data\Activity</Filter>
+    </ClCompile>
+    <ClCompile Include="Location.cpp">
+      <Filter>Data\Location</Filter>
+    </ClCompile>
+    <ClCompile Include="PageManager.cpp">
+      <Filter>Presentation\PageManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Page.cpp">
+      <Filter>Presentation\Page</Filter>
+    </ClCompile>
+    <ClCompile Include="ISerializable.cpp">
+      <Filter>Persistence\Serialization\Serializable</Filter>
+    </ClCompile>
+    <ClCompile Include="DataManager.cpp">
+      <Filter>Data\DataManager</Filter>
+    </ClCompile>
+    <ClCompile Include="User.cpp">
+      <Filter>Data\User</Filter>
+    </ClCompile>
+    <ClCompile Include="FinanceCalculations.cpp">
+      <Filter>Logic\FinanceCalculations</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectLink.cpp">
+      <Filter>Data\ObjectLink</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utils">
       <UniqueIdentifier>{b8a023b3-5e51-46a7-b57b-ecc5885c25b2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Utils\Serialization">
-      <UniqueIdentifier>{80ea3fc4-bfec-4edc-a047-02db3990f144}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="pch">
-      <UniqueIdentifier>{c1a881a1-570a-4cae-a31f-eddeaff81b27}</UniqueIdentifier>
     </Filter>
     <Filter Include="Presentation">
       <UniqueIdentifier>{cb1d86b3-b4dc-489d-916e-66dc688c3528}</UniqueIdentifier>
@@ -31,28 +52,92 @@
     <Filter Include="Data">
       <UniqueIdentifier>{1c144ebc-516f-402f-a258-df487bb65081}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Persistence\Serialization">
+      <UniqueIdentifier>{80ea3fc4-bfec-4edc-a047-02db3990f144}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils\Input">
+      <UniqueIdentifier>{5cc4313a-cd6e-4735-bd95-e3ca3f38981b}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Data\DataSet">
       <UniqueIdentifier>{f1142868-d2e6-4489-8088-31c1d74c8eba}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Persistence\Database">
-      <UniqueIdentifier>{8bf56bba-ab17-4305-bc02-6b00776bfe82}</UniqueIdentifier>
+    <Filter Include="Data\Activity">
+      <UniqueIdentifier>{c5fe7322-cd43-49f4-b47c-7a91487ae4f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Location">
+      <UniqueIdentifier>{509e500e-74c4-4320-a59b-de465fa899bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presentation\PageManager">
+      <UniqueIdentifier>{b168806b-ada2-42ee-9ddb-e0fe3adb19df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Presentation\Page">
+      <UniqueIdentifier>{046e3e27-69ca-443f-854f-1a3636569e82}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\DataManager">
+      <UniqueIdentifier>{fac42b4f-5a6e-4346-b6e4-e2c999c31e8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence\Serialization\Serializable">
+      <UniqueIdentifier>{fc60cb4f-6308-4ad5-a793-037f2d1689c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\User">
+      <UniqueIdentifier>{012482d4-3400-42cf-9586-4db74528b1b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Family">
+      <UniqueIdentifier>{ccde86c1-1ed0-48f8-98d9-d3c39e90d5d0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\FamilyMember">
+      <UniqueIdentifier>{48afa8d9-5533-4803-b15c-f535f8426794}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Logic\FinanceCalculations">
+      <UniqueIdentifier>{8886bd15-59ea-4b68-b19f-cb9af30c2e49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\ObjectLink">
+      <UniqueIdentifier>{ce1d7ab3-567d-46ef-8580-65c200fe7e6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Trip">
+      <UniqueIdentifier>{83984180-2abe-4561-9429-ffb1c1a0c99e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ISerializable.h">
-      <Filter>Utils\Serialization</Filter>
-    </ClInclude>
-    <ClInclude Include="Shared.h">
-      <Filter>pch</Filter>
-    </ClInclude>
     <ClInclude Include="SerializableGuid.h">
-      <Filter>Utils\Serialization</Filter>
+      <Filter>Persistence\Serialization</Filter>
     </ClInclude>
     <ClInclude Include="Dataset.h">
       <Filter>Data\DataSet</Filter>
     </ClInclude>
-    <ClInclude Include="Database.h">
-      <Filter>Persistence\Database</Filter>
+    <ClInclude Include="Input.h">
+      <Filter>Utils\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Location.h">
+      <Filter>Data\Location</Filter>
+    </ClInclude>
+    <ClInclude Include="Activity.h">
+      <Filter>Data\Activity</Filter>
+    </ClInclude>
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="PageManager.h">
+      <Filter>Presentation\PageManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Page.h">
+      <Filter>Presentation\Page</Filter>
+    </ClInclude>
+    <ClInclude Include="SerializableVector.h">
+      <Filter>Persistence\Serialization</Filter>
+    </ClInclude>
+    <ClInclude Include="ISerializable.h">
+      <Filter>Persistence\Serialization\Serializable</Filter>
+    </ClInclude>
+    <ClInclude Include="DataManager.h">
+      <Filter>Data\DataManager</Filter>
+    </ClInclude>
+    <ClInclude Include="User.h">
+      <Filter>Data\User</Filter>
+    </ClInclude>
+    <ClInclude Include="FinanceCalculations.h">
+      <Filter>Logic\FinanceCalculations</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectLink.h">
+      <Filter>Data\ObjectLink</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

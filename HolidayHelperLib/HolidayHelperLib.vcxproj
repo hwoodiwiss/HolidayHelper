@@ -86,16 +86,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Database.cpp" />
+    <ClCompile Include="Activity.cpp" />
+    <ClCompile Include="FinanceCalculations.cpp" />
+    <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="Input.cpp" />
+    <ClCompile Include="ISerializable.cpp" />
+    <ClCompile Include="Location.cpp" />
+    <ClCompile Include="ObjectLink.cpp" />
+    <ClCompile Include="Page.cpp" />
+    <ClCompile Include="PageManager.cpp" />
     <ClCompile Include="SerializableGuid.cpp" />
+    <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Database.h" />
+    <ClInclude Include="Activity.h" />
+    <ClInclude Include="FinanceCalculations.h" />
+    <ClInclude Include="DataManager.h" />
     <ClInclude Include="Dataset.h" />
+    <ClInclude Include="Input.h" />
     <ClInclude Include="ISerializable.h" />
+    <ClInclude Include="Location.h" />
+    <ClInclude Include="ObjectLink.h" />
+    <ClInclude Include="Page.h" />
+    <ClInclude Include="PageManager.h" />
     <ClInclude Include="SerializableGuid.h" />
-    <ClInclude Include="Shared.h" />
+    <ClInclude Include="Common.h" />
+    <ClInclude Include="SerializableVector.h" />
+    <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

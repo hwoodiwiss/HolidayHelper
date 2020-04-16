@@ -1,7 +1,7 @@
 #include "SerializableGuid.h"
 #include <sstream>
 
-namespace HolidayHelper::Utils::Serialization
+namespace HolidayHelper::Persistence
 {
 
 	SerializableGuid::SerializableGuid()

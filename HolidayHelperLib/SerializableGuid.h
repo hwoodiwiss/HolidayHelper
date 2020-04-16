@@ -2,12 +2,11 @@
 #include <Windows.h>
 #define WIN32_LEAN_AND_MEAN
 
-#include "Shared.h"
 #include "ISerializable.h"
 
 using std::string;
 
-namespace HolidayHelper::Utils::Serialization 
+namespace HolidayHelper::Persistence
 {
 	//GUID related helper functions
 	std::string GuidToString(const GUID& Guid, bool IncludeBraces = true);

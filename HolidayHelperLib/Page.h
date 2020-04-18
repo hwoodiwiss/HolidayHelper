@@ -4,16 +4,18 @@
 #include "Input.h"
 
 using std::pair;
-using namespace HolidayHelper::Data;
+using HolidayHelper::Data::DataManager;
+using HolidayHelper::Data::User;
+using HolidayHelper::Utils::Input;
 
 namespace HolidayHelper::Presentation
 {
 	
-	class Page
+	class DllExport Page
 	{
 	public:
 		//public entrypoint to executing page, drawsbasic header and information, then runs derived page action
-		string ExecutePage(string prevPage, shared_ptr<DataManager> appDataStore, shared_ptr<User>& currentUser);
+		string ExecutePage(string prevPage, string ApplicationHeader, shared_ptr<DataManager> appDataStore, shared_ptr<User>& currentUser);
 
 	protected:
 		//Helper to speed up adding page actions in derived pages
@@ -31,8 +33,7 @@ namespace HolidayHelper::Presentation
 		//Page action map can be optionally used by pages
 		map<int, string> m_PageActions;
 
+
 	private:
-		//Outputs the application header
-		void DrawHeader();
 	};
 }

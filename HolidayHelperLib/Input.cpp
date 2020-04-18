@@ -6,7 +6,7 @@ namespace HolidayHelper::Utils
 
 	//Returns a FULL line from stdin. Stream operators will only read up to a space.
 	//Uses cin as a default parameter
-	string Input::GetUserString(std::istream& stream = cin)
+	string Input::GetUserString(std::istream& stream)
 	{
 		string sReturn = "";
 		getline(cin, sReturn);

@@ -52,4 +52,7 @@
       <Filter>Logic</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TestsCommon.h" />
+  </ItemGroup>
 </Project>

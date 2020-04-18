@@ -30,6 +30,7 @@ namespace HolidayHelper::Persistence
 		return *this;
 	}
 
+
 	std::string GuidToString(const GUID& Guid, bool IncludeBraces)
 	{
 		std::stringstream ssOutBuilder;
@@ -58,6 +59,33 @@ namespace HolidayHelper::Persistence
 		return ssOutBuilder.str();
 	}
 
+	std::wstring GuidToWString(const GUID& Guid, bool IncludeBraces)
+	{
+		std::wstringstream ssOutBuilder;
+		ssOutBuilder << std::uppercase;
+
+		if (IncludeBraces)
+			ssOutBuilder << "{";
+
+		ssOutBuilder << std::hex << Guid.Data1 << "-";
+
+		ssOutBuilder.width(4);
+		ssOutBuilder << std::hex << Guid.Data2 << "-";
+
+		ssOutBuilder.width(4);
+		ssOutBuilder << std::hex << Guid.Data3 << "-";
+
+		ssOutBuilder.width(2);
+		ssOutBuilder << std::hex << static_cast<short>(Guid.Data4[0])
+			<< static_cast<short>(Guid.Data4[1]) << "-"
+			<< static_cast<short>(Guid.Data4[2]) << static_cast<short>(Guid.Data4[3])
+			<< static_cast<short>(Guid.Data4[4]) << static_cast<short>(Guid.Data4[5])
+			<< static_cast<short>(Guid.Data4[6]) << static_cast<short>(Guid.Data4[7]);
+		if (IncludeBraces)
+			ssOutBuilder << "}";
+
+		return ssOutBuilder.str();
+	}
 
 	bool operator==(const GUID& lGuid, const SerializableGuid& rSerGuid)
 	{

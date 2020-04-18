@@ -1,9 +1,8 @@
-#include "CppUnitTest.h"
+#include "TestsCommon.h"
 #include <HolidayHelperLib/FinanceCalculations.h>
 
 using HolidayHelper::Logic::FinancialCalculations;
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
 
 namespace HolidayHelperTest::Logic
 {

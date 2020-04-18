@@ -1,4 +1,4 @@
-#include "CppUnitTest.h"
+#include "TestsCommon.h"
 #include <time.h>
 #include <random>
 #include <sstream>
@@ -6,14 +6,7 @@
 
 using namespace HolidayHelper::Utils;
 
-namespace Microsoft::VisualStudio::CppUnitTestFramework
-{
-	
-}
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
-
-
 
 namespace HolidayHelperTest::Utils
 {

@@ -2,9 +2,6 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="SerializableGuid.cpp">
-      <Filter>Persistence\Serialization</Filter>
-    </ClCompile>
     <ClCompile Include="Input.cpp">
       <Filter>Utils\Input</Filter>
     </ClCompile>
@@ -34,6 +31,18 @@
     </ClCompile>
     <ClCompile Include="ObjectLink.cpp">
       <Filter>Data\ObjectLink</Filter>
+    </ClCompile>
+    <ClCompile Include="SerializableGuid.cpp">
+      <Filter>Persistence\Serialization\SerializableGuid</Filter>
+    </ClCompile>
+    <ClCompile Include="Customer.h">
+      <Filter>Data\Customer</Filter>
+    </ClCompile>
+    <ClCompile Include="Customer.cpp">
+      <Filter>Data\Customer</Filter>
+    </ClCompile>
+    <ClCompile Include="Estimate.cpp">
+      <Filter>Data\Estimate</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -82,26 +91,26 @@
     <Filter Include="Data\User">
       <UniqueIdentifier>{012482d4-3400-42cf-9586-4db74528b1b9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Data\Family">
-      <UniqueIdentifier>{ccde86c1-1ed0-48f8-98d9-d3c39e90d5d0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Data\FamilyMember">
-      <UniqueIdentifier>{48afa8d9-5533-4803-b15c-f535f8426794}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Logic\FinanceCalculations">
       <UniqueIdentifier>{8886bd15-59ea-4b68-b19f-cb9af30c2e49}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data\ObjectLink">
       <UniqueIdentifier>{ce1d7ab3-567d-46ef-8580-65c200fe7e6a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Data\Trip">
-      <UniqueIdentifier>{83984180-2abe-4561-9429-ffb1c1a0c99e}</UniqueIdentifier>
+    <Filter Include="Persistence\Serialization\SerializableGuid">
+      <UniqueIdentifier>{6be71e0b-c459-4475-a0e5-ca2fb5e62e48}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Persistence\Serialization\SerializableVector">
+      <UniqueIdentifier>{74908cbe-d7aa-4e17-a93e-fc8f0583ef8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Customer">
+      <UniqueIdentifier>{5cb505f4-4db2-4ed6-b0aa-94a13c8a5d81}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Estimate">
+      <UniqueIdentifier>{a2698c0c-17d7-466a-b983-5c4c63e60823}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SerializableGuid.h">
-      <Filter>Persistence\Serialization</Filter>
-    </ClInclude>
     <ClInclude Include="Dataset.h">
       <Filter>Data\DataSet</Filter>
     </ClInclude>
@@ -121,9 +130,6 @@
     <ClInclude Include="Page.h">
       <Filter>Presentation\Page</Filter>
     </ClInclude>
-    <ClInclude Include="SerializableVector.h">
-      <Filter>Persistence\Serialization</Filter>
-    </ClInclude>
     <ClInclude Include="ISerializable.h">
       <Filter>Persistence\Serialization\Serializable</Filter>
     </ClInclude>
@@ -138,6 +144,18 @@
     </ClInclude>
     <ClInclude Include="ObjectLink.h">
       <Filter>Data\ObjectLink</Filter>
+    </ClInclude>
+    <ClInclude Include="SerializableGuid.h">
+      <Filter>Persistence\Serialization\SerializableGuid</Filter>
+    </ClInclude>
+    <ClInclude Include="SerializableVector.h">
+      <Filter>Persistence\Serialization\SerializableVector</Filter>
+    </ClInclude>
+    <ClInclude Include="Estimate.h">
+      <Filter>Data\Estimate</Filter>
+    </ClInclude>
+    <ClInclude Include="EstimateView.h">
+      <Filter>Data\Estimate</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

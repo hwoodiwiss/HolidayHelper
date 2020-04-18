@@ -2,6 +2,16 @@
 
 namespace HolidayHelper::Data
 {
+	shared_ptr<Location> Location::Create(string Name, float PricePerPerson, int MinTravellers)
+	{
+		GUID LocationId = GUID_NULL;
+		if (CoCreateGuid(&LocationId) != S_OK)
+		{
+			return nullptr;
+		}
+		return shared_ptr<Location>(new Location(LocationId, Name, PricePerPerson, MinTravellers));
+	}
+
 	std::ostream& Location::Serialize(std::ostream& os)
 	{
 		os << m_Id;

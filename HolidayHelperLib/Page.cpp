@@ -5,13 +5,13 @@ using HolidayHelper::Utils::Input;
 
 namespace HolidayHelper::Presentation
 {
-	string Page::ExecutePage(string prevPage, shared_ptr<DataManager> appDataStore, shared_ptr<User>& currentUser)
+	string Page::ExecutePage(string prevPage, string ApplicationHeader, shared_ptr<DataManager> appDataStore, shared_ptr<User>& currentUser)
 	{
 		system("cls");
-		DrawHeader();
+		cout << ApplicationHeader << endl;
 		if (currentUser != nullptr)
 		{
-			cout << "User: " << currentUser->GetUsername() << endl << "Role: " <<  endl;
+			cout << "User: " << currentUser->GetUsername() << endl << "Type: " << currentUser->GetUserTypeString() <<  endl;
 		}
 		return Execute(prevPage, appDataStore, currentUser);
 	}
@@ -48,52 +48,4 @@ namespace HolidayHelper::Presentation
 		return UserOption;
 	}
 
-	void Page::DrawHeader()
-	{
-		const static string ApplicationHeader =
-			R"(
-                                          ,▄▄▄                              
-                                       ▄▓█▀▀▀▀▀█▄                           
-               ▄▄▓█`       ,▄▄▓▓▄▄▄▄▄@██▀!√√√√√└▀█▄                         
-            .▓█▀██       #█▀▀└:.!╙▀▀██▀:√√√√√√√√√!▀▀█▓▓▄▄                   
-           ╓█▀..▀█▓▄▄▄▄▓▀▀:√√√√√√√√√√√√√√√√√√√√√√√√√░░▀▀██▄                 
-           ██.√√√!▀▀▀▀▀:√√√√√√√√√√√√√√√√√√√√√√√√√√√√╠░░░░▀█▄                
-           █▌√√√√√√√√√√√√√▄▄▄▄▄.√√√√√√√╓▄▄▄.√√√√√√√√╠░░░░░╙█▄               
-           ██.√√√√√√√√√▄#█▀╙`╙▀█▓▄▄▄@▓██████▄.√√√√√╠░░░░░░░╙█▓▄             
-         ┌████:√√√√√(▄█▀╙       └▀▀▀▀└   └▀▀██,√√╓╢░░░░░░░░░░▀██▄           
-         ██:√╙▀▓▄▄▓▓▀▀                      └██▄░░░░░░░░░░░░░░░██▄          
-         █▌√√╓██▀  ▄▄@╕                       ▀▀█▓▀▀▀▀▀▀███▄░░░░██▄         
-         ██▄▓█▀  ╙▀▀▀▀▀                 ,▄               ▀███░░░░██▄        
-          ███`                         ▓███,     .        ███░░░░║██        
-         ▓█▀     ,▄                     └▀██▄            ▄██▀░░░░░██`       
-        ██▀     ███¼        ,              ▀▀        ╓@██▀▀░░░░░░░██        
-       ██▀     ▐███       ╓█▀        ▄▄,          .  ▄╙▀█░░░░░░░░╟██        
-      ▐█▌       ▀▀└     .▓█└        #███          .  ╙█▓,▀█░░░░░░██▌        
-      ██              ▄▓█▀          ███▌          . .▄,▀█▄╙█░░░░███         
-     ╟█▌            #██▀            ╙▀▀           .  ▀█▓,█▄╙█░░███          
-     ██─            ███                             ▓▄,▀█▄█,█░███`          
-     ██             ╙███                         .   ▀█▄╙█Ö█████            
-     ██    ,#         ╙╙                         . ╙█▄ ▀ ╙████▀             
-     ██  ╒███▄▄                  ▐█▄            .   ╙▀  .@███┘              
-     ██▌  ██▄ └╙▀▀#╦▄▄▄▄▄▄▄▄▄▄▄▄#████▄         .         ╙███               
-     ▐██   ▀ ▀▓▄,     `└╙└└ .      ███▌        .          ╟██               
-      ██▌      ╙▀█▓▄▄▄,   .,▄▄▄▓▓▀▀╙██        .          .███               
-      └██▄        └▀▀▀███▀▀▀▀╙"     ▀       ..          ▄███                
-       ╙██▄       Ñ▓▓▓▓µ                   ..    ▄▓▓▓▓███▀`                 
-        └██▄        `└└                  ..    ▄███▀└└                      
-          ▀██▄                          .   ▄▓██▀└                          
-            ▀█▓▄                     ..  ▄▓██▀╙                             
-              ╙▀█▄,                .╓▄▓██████                               
-                 ╙██▓▄         ...   '' ▄██▀                                
-                  ╙█████▓▓▄▄▄▄      .▄▄██▀'                                 
-                    ▀█████▄▄▄▄▄▄▄▄▓████▀                                    
-                       ╙▀▀▀██████▀▀▀╙           
-   __                    _              _                         _      ___  
-  / /    ___  _ __    __| |  ___  _ __ | |_  _ __   ___   _ __   / |    / _ \ 
- / /    / _ \| '_ \  / _` | / _ \| '__|| __|| '__| / _ \ | '_ \  | |   | | | |
-/ /___ |  __/| | | || (_| ||  __/| |   | |_ | |   | (_) || | | | | | _ | |_| |
-\____/  \___||_| |_| \__,_| \___||_|    \__||_|    \___/ |_| |_| |_|(_) \___/ 
-)";
-		cout << ApplicationHeader << endl;
-	}
 }

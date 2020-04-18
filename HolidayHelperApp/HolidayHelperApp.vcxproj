@@ -81,7 +81,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdminMainPage.cpp" />
+    <ClCompile Include="Application.cpp" />
+    <ClCompile Include="LogoutPage.cpp" />
+    <ClCompile Include="LoginPage.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="CreateUserPage.cpp" />
+    <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="WelcomePage.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AdminMainPage.h" />
+    <ClInclude Include="Application.h" />
+    <ClInclude Include="LogoutPage.h" />
+    <ClInclude Include="LoginPage.h" />
+    <ClInclude Include="CreateUserPage.h" />
+    <ClInclude Include="MainPage.h" />
+    <ClInclude Include="WelcomePage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

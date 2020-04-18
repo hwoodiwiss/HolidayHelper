@@ -14,8 +14,8 @@ namespace HolidayHelper::Utils
 	class DllExport Input
 	{
 	public:
-		//Gets a string input from the user
-		static std::string GetUserString(std::istream& stream);
+		//Gets a string input from the user, allowing for the desired stream as a param, but with a defailt of std::cin
+		static std::string GetUserString(std::istream& stream = cin);
 
 		//Returns a whitespace trimed copy of trimStr
 		static std::string Trim(std::string trimStr);

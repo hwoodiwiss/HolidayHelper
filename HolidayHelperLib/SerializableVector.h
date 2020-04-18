@@ -3,6 +3,9 @@
 #include <type_traits>
 #include "Common.h"
 #include "ISerializable.h"
+#include "Dataset.h"
+
+using HolidayHelper::Data::DataSet;
 
 namespace HolidayHelper::Persistence
 {
@@ -14,6 +17,11 @@ namespace HolidayHelper::Persistence
 		static_assert(std::is_base_of<ISerializable, T>::value, "T must inherit from ISerialiazable");
 	public:
 		SerializableVector() : std::vector<shared_ptr<T>>() {}
+
+		DataSet<shared_ptr<T>> AsDataSet()
+		{
+			return DataSet<shared_ptr<T>>(this);
+		}
 
 		std::ostream& Serialize(std::ostream& out)
 		{

@@ -5,18 +5,82 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Resource Files">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{cd9b51de-e8b6-4148-b59c-5a3d779d80a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages">
+      <UniqueIdentifier>{bb184598-ed49-46df-9102-4b9168a84ac3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\WelcomePage">
+      <UniqueIdentifier>{01e24c85-4865-4046-be0a-0a3d498a06d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\LoginPage">
+      <UniqueIdentifier>{7953a19a-e195-4bb9-bc3c-9d16854a4862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\AdminMainPage">
+      <UniqueIdentifier>{242e0996-54e2-40b2-bbb8-f87661ad9e65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\CreateUserPage">
+      <UniqueIdentifier>{4e758d44-d7f0-4c84-88c4-030b49d3bb8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\MainPage">
+      <UniqueIdentifier>{c8179770-08f0-4004-a91a-ec0f245c3bf0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pages\LogoutPage">
+      <UniqueIdentifier>{bb20c81a-c493-444a-b509-1c2032a3e490}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="WelcomePage.cpp">
+      <Filter>Pages\WelcomePage</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginPage.cpp">
+      <Filter>Pages\LoginPage</Filter>
+    </ClCompile>
+    <ClCompile Include="AdminMainPage.cpp">
+      <Filter>Pages\AdminMainPage</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateUserPage.cpp">
+      <Filter>Pages\CreateUserPage</Filter>
+    </ClCompile>
+    <ClCompile Include="MainPage.cpp">
+      <Filter>Pages\MainPage</Filter>
+    </ClCompile>
+    <ClCompile Include="LogoutPage.cpp">
+      <Filter>Pages\LogoutPage</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Application.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="WelcomePage.h">
+      <Filter>Pages\WelcomePage</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginPage.h">
+      <Filter>Pages\LoginPage</Filter>
+    </ClInclude>
+    <ClInclude Include="AdminMainPage.h">
+      <Filter>Pages\AdminMainPage</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateUserPage.h">
+      <Filter>Pages\CreateUserPage</Filter>
+    </ClInclude>
+    <ClInclude Include="MainPage.h">
+      <Filter>Pages\MainPage</Filter>
+    </ClInclude>
+    <ClInclude Include="LogoutPage.h">
+      <Filter>Pages\LogoutPage</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

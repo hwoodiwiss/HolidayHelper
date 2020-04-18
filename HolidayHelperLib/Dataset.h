@@ -1,11 +1,9 @@
 #pragma once
 #include "ISerializable.h"
-#include "SerializableVector.h"
 #include <vector>
 
 using std::vector;
 using std::initializer_list;
-using HolidayHelper::Persistence::SerializableVector;
 
 namespace HolidayHelper::Data
 {
@@ -17,8 +15,7 @@ namespace HolidayHelper::Data
 
 		DataSet<T> Where(bool(*Func)(T));
 		template <typename rT> DataSet<rT> Select(rT(*Func)(T));
-		
-
+		T First();
 
 	private:
 	};
@@ -34,6 +31,15 @@ namespace HolidayHelper::Data
 		}
 
 		return returnData;
+	}
+
+	template<typename T>
+	inline T DataSet<T>::First()
+	{
+		if (*this->size() > 0)
+			return this[0];
+
+		throw new std::exception("Array Index out of Bounds!");
 	}
 
 	template<typename T>

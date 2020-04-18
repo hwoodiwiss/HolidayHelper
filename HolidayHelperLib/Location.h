@@ -2,7 +2,8 @@
 #include "Common.h"
 #include "SerializableGuid.h"
 
-using namespace HolidayHelper::Persistence;
+using HolidayHelper::Persistence::ISerializable;
+using HolidayHelper::Persistence::SerializableGuid;
 
 
 namespace HolidayHelper::Data
@@ -11,9 +12,11 @@ namespace HolidayHelper::Data
 	class DllExport Location : public ISerializable
 	{
 	public:
-		Location() {};
+		Location() { m_PricePerPerson = 0; m_MinTravellers = 0; };
 		Location(GUID Id, string Name, float PricePerPerson, int MinTravellers)
 			: m_Id(Id), m_Name(Name), m_PricePerPerson(PricePerPerson), m_MinTravellers(MinTravellers){}
+
+		static shared_ptr<Location> Create(string Name, float PricePerPerson, int MinTravellers);
 
 		SerializableGuid GetId() { return m_Id; }
 		string GetName() { return m_Name; }

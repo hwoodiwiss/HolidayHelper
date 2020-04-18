@@ -2,6 +2,35 @@
 
 namespace HolidayHelper::Data
 {
+	shared_ptr<User> User::Create(string Username, string Password, bool FirstLogin, UserType Type, GUID CustomerId)
+	{
+		GUID UserId;
+		if (CoCreateGuid(&UserId) != S_OK)
+		{
+			return nullptr;
+		}
+		return shared_ptr<User>(new User(UserId, Username, Password, FirstLogin, Type, CustomerId));
+	}
+	void User::ChangePassword(string NewPassword, bool FirstLogin)
+	{
+		m_Password = NewPassword;
+		m_FirstLogin = FirstLogin;
+	}
+
+	string User::GetUserTypeString()
+	{
+		switch (m_Type)
+		{
+		case UT_NONE:
+			return "None";
+		case UT_CUSTOMER:
+			return "Customer";
+		case UT_ADMIN:
+			return "Admin";
+		default:
+			return "None";
+		}
+	}
 	std::ostream& User::Serialize(std::ostream& os)
 	{
 		os << m_Id;

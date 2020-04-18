@@ -9,7 +9,8 @@ using std::string;
 namespace HolidayHelper::Persistence
 {
 	//GUID related helper functions
-	std::string GuidToString(const GUID& Guid, bool IncludeBraces = true);
+	std::string DllExport GuidToString(const GUID& Guid, bool IncludeBraces = true);
+	std::wstring DllExport GuidToWString(const GUID& Guid, bool IncludeBraces = true);
 
 	//Provides a serializable extension to the GUID structure, and operators to make them inter-usable
 	class DllExport SerializableGuid : public ISerializable

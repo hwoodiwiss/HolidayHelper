@@ -1,18 +1,9 @@
-#include <HolidayHelperLib/SerializableGuid.h>
-#include <HolidayHelperLib/Database.h>
-#include <Windows.h>
+#include "Application.h"
 
-
-int main(int argC, char** argV)
+int main(int argc, char** argv)
 {
-	GUID guid;
-	if (CoCreateGuid(&guid) != S_OK)
-	{
-		return 1;
-	}
-
-
-
-
-	
+	//Instatntiates an application object
+	Application app;
+	app.SetParams(argc, argv);
+	return app.Run();
 }

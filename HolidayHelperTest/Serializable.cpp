@@ -1,14 +1,9 @@
-#include "CppUnitTest.h"
+#include "TestsCommon.h"
 #include <time.h>
 #include <random>
 #include <HolidayHelperLib/ISerializable.h>
 
 using namespace HolidayHelper::Persistence;
-
-namespace Microsoft::VisualStudio::CppUnitTestFramework
-{
-
-}
 
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 

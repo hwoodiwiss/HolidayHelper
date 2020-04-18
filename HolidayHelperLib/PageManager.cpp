@@ -7,6 +7,7 @@ namespace HolidayHelper::Presentation
 		m_PageDictionary.insert(std::pair<string, shared_ptr<Page>>(MenuName, pMenuObj));
 	}
 
+
 	shared_ptr<Page> PageManager::GetPage(string PageName)
 	{
 		//Reserve "Exit" for exiting

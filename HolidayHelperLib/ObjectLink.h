@@ -3,7 +3,8 @@
 #include "ISerializable.h"
 #include "SerializableGuid.h"
 
-using namespace HolidayHelper::Persistence;
+using HolidayHelper::Persistence::ISerializable;
+using HolidayHelper::Persistence::SerializableGuid;
 
 namespace HolidayHelper::Data
 {

@@ -1,25 +1,9 @@
-#include "CppUnitTest.h"
+#include "TestsCommon.h"
 #include <time.h>
 #include <random>
 #include <HolidayHelperLib/Dataset.h>
 
 using namespace HolidayHelper::Data;
-
-namespace Microsoft::VisualStudio::CppUnitTestFramework
-{
-	//Add a tostring helper for the unit test framework
-	template<> static std::wstring ToString<DataSet<int>>(const class DataSet<int>& t)
-	{
-		std::wstringstream wss;
-		for (auto val : t)
-		{
-			wss << val << ", ";
-		}
-
-		return wss.str();
-	}
-}
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace HolidayHelperTest::Data

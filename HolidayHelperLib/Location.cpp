@@ -17,6 +17,14 @@ namespace HolidayHelper::Data
 		return CustomerObj->GetNumMembers() >= m_MinTravellers;
 	}
 
+	bool Location::operator==(const Location& rhs)
+	{
+		return (m_Id == rhs.m_Id
+			&& m_Name == rhs.m_Name
+			&& m_PricePerPerson == rhs.m_PricePerPerson
+			&& m_MinTravellers == rhs.m_MinTravellers);
+	}
+
 	std::ostream& Location::Serialize(std::ostream& os)
 	{
 		os << m_Id;

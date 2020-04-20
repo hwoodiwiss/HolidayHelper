@@ -18,6 +18,16 @@ namespace HolidayHelper::Data
 		return (m_NumAdults >= 2) && (m_NumChildren >= 2);
 	}
 
+	bool Customer::operator==(const Customer& rhs)
+	{
+		return (m_Id == rhs.m_Id
+			&& m_FirstName == rhs.m_FirstName
+			&& m_LastName == rhs.m_LastName
+			&& m_NumAdults == rhs.m_NumAdults
+			&& m_NumChildren == rhs.m_NumChildren
+			);
+	}
+
 	std::ostream& Customer::Serialize(std::ostream& os)
 	{
 		os << m_Id;

@@ -34,6 +34,8 @@ namespace HolidayHelper::Data
 		
 		string GetUserTypeString();
 
+		bool operator==(const User& rhs);
+
 		std::ostream& Serialize(std::ostream& os);
 		std::istream& Deserialize(std::istream& is);
 

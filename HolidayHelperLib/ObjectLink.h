@@ -17,6 +17,8 @@ namespace HolidayHelper::Data
 		SerializableGuid GetFirstId() { return m_FirstId; }
 		SerializableGuid GetSecondId() { return m_SecondId; }
 
+		bool operator==(const ObjectLink& rhs);
+
 		std::ostream& Serialize(std::ostream& os);
 		std::istream& Deserialize(std::istream& is);
 

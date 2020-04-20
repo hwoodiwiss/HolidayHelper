@@ -2,6 +2,11 @@
 
 namespace HolidayHelper::Data
 {
+	bool ObjectLink::operator==(const ObjectLink& rhs)
+	{
+		return (m_FirstId == rhs.m_FirstId
+			&& m_SecondId == rhs.m_SecondId);
+	}
 	std::ostream& ObjectLink::Serialize(std::ostream& os)
 	{
 		os << m_FirstId << m_SecondId;

@@ -26,6 +26,8 @@ namespace HolidayHelper::Data
 		int GetNumMembers() { return m_NumAdults + m_NumChildren; }
 		bool IsDiscountEligible();
 
+		bool operator==(const Customer& rhs);
+
 		std::ostream& Serialize(std::ostream& os);
 		std::istream& Deserialize(std::istream& is);
 	private:

@@ -75,41 +75,33 @@ namespace HolidayHelperTest::Utils
 
 		TEST_METHOD(ValidateIntString)
 		{
-			//Empty string
-			Assert::IsFalse(Input::ValidateIntString(""));
+			for (string ValidInt : ValidInts)
+			{
+				Assert::IsTrue(Input::ValidateIntString(ValidInt));
+			}
 
-			Assert::IsTrue(Input::ValidateIntString("1"));
-			Assert::IsTrue(Input::ValidateIntString("256"));
-			Assert::IsTrue(Input::ValidateIntString("-556622"));
-			Assert::IsTrue(Input::ValidateIntString("1235448"));
-
-			Assert::IsFalse(Input::ValidateIntString("four-thousand"));
-			Assert::IsFalse(Input::ValidateIntString("-ten"));
-			Assert::IsFalse(Input::ValidateIntString("minus ten"));
+			for (string InvalidInt : InvalidInts)
+			{
+				Assert::IsFalse(Input::ValidateIntString(InvalidInt));
+			}
 		}
 
 		TEST_METHOD(ValidateFloatString)
 		{
-			//Empty string
-			Assert::IsFalse(Input::ValidateFloatString(""));
 
 			//Valid floating point numbers, should be true
-			Assert::IsTrue(Input::ValidateFloatString("1"));
-			Assert::IsTrue(Input::ValidateFloatString("256"));
-			Assert::IsTrue(Input::ValidateFloatString("-556622"));
-			Assert::IsTrue(Input::ValidateFloatString("1235448"));
-			Assert::IsTrue(Input::ValidateFloatString("1.025"));
-			Assert::IsTrue(Input::ValidateFloatString("256.1293"));
-			Assert::IsTrue(Input::ValidateFloatString("-556622.1231"));
-			Assert::IsTrue(Input::ValidateFloatString("1235448.4322342"));
+			for (string Valid : ValidFloats)
+			{
+				Assert::IsTrue(Input::ValidateFloatString(Valid));
+			}
+
 
 			//Invalid floating point numbers, should be false
-			Assert::IsFalse(Input::ValidateFloatString("four-thousand"));
-			Assert::IsFalse(Input::ValidateFloatString("-ten"));
-			Assert::IsFalse(Input::ValidateFloatString("minus ten"));
-			Assert::IsFalse(Input::ValidateFloatString("1235448.four"));
-			Assert::IsFalse(Input::ValidateFloatString("-fifty.12749"));
-			Assert::IsFalse(Input::ValidateFloatString("-134544point1224"));
+			for (string Invalid : InvalidFloats)
+			{
+				Assert::IsFalse(Input::ValidateFloatString(Invalid));
+			}
+
 		}
 
 		TEST_METHOD(GetUserInt)
@@ -124,20 +116,80 @@ namespace HolidayHelperTest::Utils
 			auto backupCoutBuff = cout.rdbuf();
 			cout.set_rdbuf(coutSpoof.rdbuf());
 
-			//Set up the buffer with an invalid integer followed by a valid input on the next line
-			//This should trigger an invalid number response at least once
-			cinSpoof << "thirty-four" << std::endl << 34;
 
-			int Expected = 34;
+			for (string ValidInt : ValidInts)
+			{
+				cinSpoof << ValidInt << endl;
+				int Expected = stoi(ValidInt);
+				int Actual = Input::GetUserInt();
+
+				Assert::AreEqual(Expected, Actual);
+				Assert::AreEqual(string(""), coutSpoof.str());
+
+			}
+
+			cin.clear();
+			cout.clear();
+
+			stringstream coutExpected;
+
+			for (string InvalidInt : InvalidInts)
+			{
+				cinSpoof << InvalidInt << endl << 1 << endl; //Have to add a valid int, or GetUserInt will never return
+				int Actual = Input::GetUserInt();
+
+				Assert::AreEqual(1, Actual);
+				coutExpected << "Please enter a valid number.\n";
+			}
+
+			Assert::AreEqual(coutExpected.str(), coutSpoof.str());
+
+			//Restore and cleanup stream buffers
+			cin.set_rdbuf(backupCinBuff);
+			cout.set_rdbuf(backupCoutBuff);
+			cin.clear();
+			cout.clear();
+		}
+
+		TEST_METHOD(GetUserFloat)
+		{
+			//Redirect cin
+			stringstream cinSpoof;
+			auto backupCinBuff = cin.rdbuf();
+			cin.set_rdbuf(cinSpoof.rdbuf());
+
+			//redirect cout
+			stringstream coutSpoof;
+			auto backupCoutBuff = cout.rdbuf();
+			cout.set_rdbuf(coutSpoof.rdbuf());
 
 
+			for (string ValidFloat : ValidFloats)
+			{
+				cinSpoof << ValidFloat << endl;
+				int Expected = stof(ValidFloat);
+				int Actual = Input::GetUserFloat();
 
-			string coutExpected = "Please enter a valid number.\n";
+				Assert::AreEqual(Expected, Actual);
+				Assert::AreEqual(string(""), coutSpoof.str());
 
-			int Actual = Input::GetUserInt();
+			}
 
-			Assert::AreEqual(Expected, Actual);
-			Assert::AreEqual(coutExpected, coutSpoof.str());
+			cin.clear();
+			cout.clear();
+
+			stringstream coutExpected;
+
+			for (string InvalidFloat : InvalidFloats)
+			{
+				cinSpoof << InvalidFloat << endl << 1 << endl; //Have to add a valid int, or GetUserInt will never return
+				int Actual = Input::GetUserFloat();
+
+				Assert::AreEqual(1, Actual);
+				coutExpected << "Please enter a valid number.\n";
+			}
+
+			Assert::AreEqual(coutExpected.str(), coutSpoof.str());
 
 			//Restore and cleanup stream buffers
 			cin.set_rdbuf(backupCinBuff);
@@ -153,9 +205,31 @@ namespace HolidayHelperTest::Utils
 			auto backupCinBuff = cin.rdbuf();
 			cin.set_rdbuf(cinSpoof.rdbuf());
 
+			//Positive ints
 			cinSpoof << "10, 20, 30, 40, 50\n";
 			vector<int> Expected = { 10, 20, 30, 40, 50 };
 			auto Actual = Input::GetUserIntArray();
+
+			Assert::AreEqual(Expected, Actual);
+
+			//Negative ints
+			cinSpoof << "-10, -20, -30, -40, -50\n";
+			Expected = { -10, -20, -30, -40, -50 };
+			Actual = Input::GetUserIntArray();
+
+			Assert::AreEqual(Expected, Actual);
+
+			//Mixed
+			cinSpoof << "-10, 20, -30, 40, -50\n";
+			Expected = { -10, 20, -30, 40, -50 };
+			Actual = Input::GetUserIntArray();
+
+			Assert::AreEqual(Expected, Actual);
+
+			//Single int
+			cinSpoof << "10034\n";
+			Expected = { 10034 };
+			Actual = Input::GetUserIntArray();
 
 			Assert::AreEqual(Expected, Actual);
 
@@ -173,5 +247,13 @@ namespace HolidayHelperTest::Utils
 
 			Assert::AreEqual(Expected, Actual);
 		}
+
+		private:
+			vector<string> ValidInts = { "1", "256", "-556622", "1235448" };
+			vector<string> InvalidInts = { "four-thousand", "-ten", "minus ten", "" };
+
+			vector<string> ValidFloats = { "1", "256", "-556622", "1235448", "1.025", "256.1293", "-556622.1231", "1235448.4322342" };
+			vector<string> InvalidFloats = { "", "four-thousand", "-ten", "minus ten", "1235448.four", "-fifty.12749", "-134544point1224" };
+
 	};
 }

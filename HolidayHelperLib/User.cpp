@@ -11,6 +11,7 @@ namespace HolidayHelper::Data
 		}
 		return shared_ptr<User>(new User(UserId, Username, Password, FirstLogin, Type, CustomerId));
 	}
+
 	void User::ChangePassword(string NewPassword, bool FirstLogin)
 	{
 		m_Password = NewPassword;
@@ -31,6 +32,17 @@ namespace HolidayHelper::Data
 			return "None";
 		}
 	}
+
+	bool User::operator==(const User& rhs)
+	{
+		return (m_Id == rhs.m_Id
+			&& m_Username == rhs.m_Username
+			&& m_Password == rhs.m_Password
+			&& m_FirstLogin == rhs.m_FirstLogin
+			&& m_Type == rhs.m_Type
+			&& m_CustomerId == rhs.m_CustomerId);
+	}
+
 	std::ostream& User::Serialize(std::ostream& os)
 	{
 		os << m_Id;
@@ -41,6 +53,7 @@ namespace HolidayHelper::Data
 		os << m_CustomerId;
 		return os;
 	}
+
 	std::istream& User::Deserialize(std::istream& is)
 	{
 		is >> m_Id;
@@ -51,6 +64,7 @@ namespace HolidayHelper::Data
 		is >> m_CustomerId;
 		return is;
 	}
+
 	UserType User::UTFromStream(std::istream& is)
 	{
 		UserType eType;

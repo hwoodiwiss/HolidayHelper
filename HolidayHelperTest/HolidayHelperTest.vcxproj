@@ -96,7 +96,7 @@
     <ClCompile Include="FinanceCalculations.cpp" />
     <ClCompile Include="DataSet.cpp" />
     <ClCompile Include="Input.cpp" />
-    <ClCompile Include="Serializable.cpp" />
+    <ClCompile Include="SerializableGuid.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestsCommon.h" />

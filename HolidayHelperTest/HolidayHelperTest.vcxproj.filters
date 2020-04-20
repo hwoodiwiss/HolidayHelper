@@ -34,6 +34,12 @@
     <Filter Include="Data\Location">
       <UniqueIdentifier>{9afe01f7-fd73-451d-97dc-28d0abf98938}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Persistence\Serialization\Serializable\SerializableGuid">
+      <UniqueIdentifier>{1ac18723-a77a-4f9e-8d9c-6ef7278afeda}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Customer">
+      <UniqueIdentifier>{4ad42e49-f55e-4809-a0ae-d8877b5dc2a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataSet.cpp">
@@ -42,14 +48,14 @@
     <ClCompile Include="Input.cpp">
       <Filter>Utils\Input</Filter>
     </ClCompile>
-    <ClCompile Include="Serializable.cpp">
-      <Filter>Persistence\Serialization\Serializable</Filter>
-    </ClCompile>
     <ClCompile Include="Activity.cpp">
       <Filter>Data\Activity</Filter>
     </ClCompile>
     <ClCompile Include="FinanceCalculations.cpp">
       <Filter>Logic</Filter>
+    </ClCompile>
+    <ClCompile Include="SerializableGuid.cpp">
+      <Filter>Persistence\Serialization\Serializable\SerializableGuid</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

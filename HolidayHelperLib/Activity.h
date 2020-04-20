@@ -23,6 +23,8 @@ namespace HolidayHelper::Data
 		bool IsUserCreated() { return m_UserCreated; }
 		GUID GetCustomerId() { return m_CustomerId.AsGuid(); }
 
+		bool operator==(const Activity& rhs);
+
 		std::ostream& Serialize(std::ostream& os);
 		std::istream& Deserialize(std::istream& is);
 

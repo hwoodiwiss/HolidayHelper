@@ -15,6 +15,15 @@ namespace HolidayHelper::Data
 		return shared_ptr<Activity>(new Activity(ActivityId, Name, PricePerPerson, UserCreated, CustomerId));
 	}
 
+	bool Activity::operator==(const Activity& rhs)
+	{
+		return (m_Id == rhs.m_Id 
+			&& m_Name == rhs.m_Name
+			&& m_PricePerPerson == rhs.m_PricePerPerson
+			&& m_UserCreated == rhs.m_UserCreated
+			&& m_CustomerId == rhs.m_CustomerId);
+	}
+
 	std::ostream& Activity::Serialize(std::ostream& os)
 	{
 		os << m_Id;

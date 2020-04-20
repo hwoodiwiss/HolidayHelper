@@ -24,6 +24,8 @@ namespace HolidayHelper::Data
 		DataSet<GUID> GetActivityIds() { return m_Activities.Select<GUID>([](shared_ptr<SerializableGuid> s)->GUID { return s->AsGuid(); }); }
 		float GetPrice() { return m_Price; }
 
+		bool operator==(const Estimate& rhs);
+
 		std::ostream& Serialize(std::ostream& os);
 		std::istream& Deserialize(std::istream& is);
 

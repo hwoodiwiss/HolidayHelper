@@ -69,6 +69,19 @@ namespace HolidayHelperTest::Data
 			Assert::AreEqual(ExpectedObj.IsUserCreated(), ActualObj.IsUserCreated());;
 		}
 
+		TEST_METHOD(Serialization)
+		{
+			Activity Expected = Activity(Id, Name, PricePerPerson, UserCreated);
+
+			std::stringstream ss;
+			ss << Expected;
+
+			Activity Actual;
+			ss >> Actual;
+
+			Assert::IsTrue(Expected == Actual);
+		}
+
 	private:
 		GUID Id = { 0xf06e320c, 0xbe02, 0x4c98, {0x92, 0xf0, 0x6c, 0x36, 0x83, 0x5b, 0x3b, 0x6e} };
 		string Name = "Test Activity";

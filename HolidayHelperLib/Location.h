@@ -29,6 +29,8 @@ namespace HolidayHelper::Data
 
 		bool IsCustomerEligible(shared_ptr<Customer> CustomerObj);
 
+		bool operator==(const Location& rhs);
+
 		std::ostream& Serialize(std::ostream& os);
 		std::istream& Deserialize(std::istream& is);
 

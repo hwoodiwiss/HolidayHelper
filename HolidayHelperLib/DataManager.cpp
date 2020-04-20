@@ -61,6 +61,56 @@ namespace HolidayHelper::Data
 		return nullptr;
 	}
 
+	DataSet<shared_ptr<Customer>> DataManager::SearchCustomers(string FirstName, string LastName)
+	{
+		//Transform the names to lowercase for easier comparison
+		std::transform(FirstName.begin(), FirstName.end(), FirstName.begin(), ::tolower);
+		std::transform(LastName.begin(), LastName.end(), LastName.begin(), ::tolower);
+
+		DataSet<shared_ptr<Customer>> matchedCustomers;
+
+		for (auto pCustomer : m_Customers)
+		{
+			string CustFName = pCustomer->GetFirstName();
+			string CustLName = pCustomer->GetLastName();
+			std::transform(CustFName.begin(), CustFName.end(), CustFName.begin(), ::tolower);
+			std::transform(CustLName.begin(), CustLName.end(), CustLName.begin(), ::tolower);
+			if (CustFName == FirstName || CustLName == LastName)
+			{
+				matchedCustomers.push_back(pCustomer);
+			}
+		}
+
+		return matchedCustomers;
+	}
+
+	EstimateView DataManager::GetEstimateView(GUID EstimateId)
+	{
+		auto EstimateObj = GetEstimate(EstimateId);
+
+		if (EstimateObj == nullptr)
+			return EstimateView();
+
+		DataSet<shared_ptr<Activity>> EstimateActivities;
+
+		for (auto ActivityId : EstimateObj->GetActivityIds())
+		{
+			shared_ptr<Activity> EstimateActivity = nullptr;
+			EstimateActivity = GetActivity(ActivityId);
+			if (EstimateActivity != nullptr)
+				EstimateActivities.push_back(EstimateActivity);
+		}
+
+		EstimateView View = EstimateView(
+			EstimateObj,
+			GetCustomer(EstimateObj->GetCustomerId()),
+			GetLocation(EstimateObj->GetLocationId()),
+			EstimateActivities
+		);
+
+		return View;
+	}
+
 	shared_ptr<Customer> DataManager::GetCustomer(GUID CustomerId)
 	{
 		auto findIter = std::find_if(m_Customers.begin(), m_Customers.end(), [CustomerId](shared_ptr<Customer> pCustomer)->bool { return pCustomer->GetId() == CustomerId; });
@@ -72,7 +122,7 @@ namespace HolidayHelper::Data
 		return nullptr;
 	}
 
-	DataSet<shared_ptr<Activity>> DataManager::GetLocationActivities(GUID LocationId)
+	DataSet<shared_ptr<Activity>> DataManager::GetLocationActivities(GUID LocationId, GUID CustomerId)
 	{
 		DataSet<shared_ptr<Activity>> foundActivities;
 		for (auto LocationActivity : m_LocationActivities)
@@ -82,6 +132,12 @@ namespace HolidayHelper::Data
 				foundActivities.push_back(GetActivity(LocationActivity->GetSecondId().AsGuid()));
 			}
 		}
+
+		if (CustomerId != GUID_NULL)
+		{
+			foundActivities = foundActivities.Where([CustomerId](shared_ptr<Activity> w) { return (!w->IsUserCreated() || w->GetCustomerId() == CustomerId); });
+		}
+
 		return foundActivities;
 	}
 
@@ -89,16 +145,11 @@ namespace HolidayHelper::Data
 	{
 		DataSet<EstimateView> CustomerEstimates;
 
-		for (auto CustomerEstimate : m_CustomerEstimates)
+		for (auto EstimateObj : m_Estimates.Where([pCustomer](shared_ptr<Estimate> w) { return w->GetCustomerId() == pCustomer->GetId(); }))
 		{
-			if (CustomerEstimate->GetFirstId() == pCustomer->GetId())
-			{
-				auto Estimate = GetEstimate(CustomerEstimate->GetSecondId().AsGuid());
-				EstimateView View = EstimateView(
-					GetCustomer(Estimate->GetCustomerId().AsGuid()),
-					Get
-				)
-			}
+			EstimateView View = GetEstimateView(EstimateObj->GetId());
+
+			CustomerEstimates.push_back(View);
 		}
 
 		return CustomerEstimates;
@@ -138,6 +189,12 @@ namespace HolidayHelper::Data
 
 	}
 
+	void DataManager::AddEstimate(shared_ptr<Estimate> pNewEstimate)
+	{
+		if (pNewEstimate != nullptr)
+			m_Estimates.push_back(pNewEstimate);
+	}
+
 	void DataManager::AddLocation(shared_ptr<Location> pNewLocation)
 	{
 		if (pNewLocation != nullptr)
@@ -152,6 +209,14 @@ namespace HolidayHelper::Data
 		for (auto location : pNewLocations)
 		{
 			AddLocation(location);
+		}
+	}
+
+	void DataManager::AddLocationActivities(GUID LocationId, DataSet<GUID> ActivityIds)
+	{
+		for (auto ActivityId : ActivityIds)
+		{
+			m_LocationActivities.push_back(shared_ptr<ObjectLink>(new ObjectLink(LocationId, ActivityId)));
 		}
 	}
 
@@ -190,6 +255,11 @@ namespace HolidayHelper::Data
 	void DataManager::Update()
 	{
 		Save(m_UpdatePath);
+	}
+
+	void DataManager::SetUpdatePath(fs::path filePath)
+	{
+		m_UpdatePath = filePath;
 	}
 
 	shared_ptr<Customer> DataManager::GetUserCustomer(shared_ptr<User> pUser)

@@ -22,7 +22,7 @@ namespace HolidayHelper::Persistence
 
 		//Equivilence operator between this type and the WinAPI GUID (Right to left and left to right
 		bool operator==(const GUID& rGuid);
-		friend bool operator==(const GUID& lGuid, const SerializableGuid& rSerGuid);
+		friend bool DllExport operator==(const GUID& lGuid, const SerializableGuid& rSerGuid);
 
 		//Allows implicit assignment from GUID to SerializableGuid
 		SerializableGuid& operator=(const GUID& rGuid);

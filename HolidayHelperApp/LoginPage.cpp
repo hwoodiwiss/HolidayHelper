@@ -44,6 +44,7 @@ string LoginPage::Execute(string prevPage, shared_ptr<DataManager> appDataManage
 				} while (newPassword != newPasswordVerify);
 
 				foundUser->ChangePassword(newPassword, false);
+				appDataManager->Update();
 			}
 
 			//Set the in-context app user to be the newly logged in user

@@ -89,6 +89,7 @@
     <ClCompile Include="Activity.cpp" />
     <ClCompile Include="Customer.cpp" />
     <ClCompile Include="Estimate.cpp" />
+    <ClCompile Include="EstimateView.cpp" />
     <ClCompile Include="FinanceCalculations.cpp" />
     <ClCompile Include="DataManager.cpp" />
     <ClCompile Include="dllmain.cpp" />

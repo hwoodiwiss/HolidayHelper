@@ -88,6 +88,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CreateUserPage.cpp" />
     <ClCompile Include="MainPage.cpp" />
+    <ClCompile Include="ManageCustomersPage.cpp" />
+    <ClCompile Include="ManageLocationsPage.cpp" />
+    <ClCompile Include="ManageUsersPage.cpp" />
+    <ClCompile Include="NewEstimatePage.cpp" />
+    <ClCompile Include="PreviousEstimatePage.cpp" />
     <ClCompile Include="WelcomePage.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +102,11 @@
     <ClInclude Include="LoginPage.h" />
     <ClInclude Include="CreateUserPage.h" />
     <ClInclude Include="MainPage.h" />
+    <ClInclude Include="ManageCustomersPage.h" />
+    <ClInclude Include="ManageLocationsPage.h" />
+    <ClInclude Include="ManageUsersPage.h" />
+    <ClInclude Include="NewEstimatePage.h" />
+    <ClInclude Include="PreviousEstimatePage.h" />
     <ClInclude Include="WelcomePage.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -30,7 +30,6 @@ namespace HolidayHelper::Persistence
 		return *this;
 	}
 
-
 	std::string GuidToString(const GUID& Guid, bool IncludeBraces)
 	{
 		std::stringstream ssOutBuilder;

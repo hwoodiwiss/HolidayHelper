@@ -1,5 +1,6 @@
 #include "Input.h"
 #include <algorithm>
+#include <sstream>
 
 namespace HolidayHelper::Utils
 {
@@ -18,6 +19,17 @@ namespace HolidayHelper::Utils
 		trimStr.erase(trimStr.begin(), std::find_if(trimStr.begin(), trimStr.end(), [](int curr)->bool { return !std::isspace(curr); }));
 		trimStr.erase(std::find_if(trimStr.rbegin(), trimStr.rend(), [](int curr)->bool { return !std::isspace(curr); }).base(), trimStr.end());
 		return trimStr;
+	}
+
+	vector<string> Input::Split(string& SplitString, char Delimiter)
+	{
+		vector<string> Output;
+		std::stringstream ss = std::stringstream(SplitString);
+		string SplitPart;
+		while (std::getline(ss, SplitPart, Delimiter))
+			Output.push_back(SplitPart);
+
+		return Output;
 	}
 
 	int Input::GetUserInt()
@@ -67,6 +79,44 @@ namespace HolidayHelper::Utils
 		}
 
 		return stof(sInput);
+	}
+
+	vector<int> Input::GetUserIntArray()
+	{
+		vector<int> Output;
+		bool ValidInput = false;
+
+		string sInput = GetUserString();
+
+		while (ValidInput == false || Output.size() == 0)
+		{
+			ValidInput = true;
+			auto SplitInput = Split(sInput, ',');
+
+			for (string InputPart : SplitInput)
+			{
+				string TrimmedInputPart = Trim(InputPart);
+
+				if (ValidateIntString(TrimmedInputPart))
+				{
+					Output.push_back(stoi(TrimmedInputPart));
+				}
+				else
+				{
+					ValidInput &= false;
+				}
+			}
+
+			if (!ValidInput)
+			{
+				cout << "Something wasn't right there." << endl;
+				cout << "Please enter your desired choices, separated by commas." << endl;
+				sInput = GetUserString();
+				Output.empty();
+			}
+		}
+
+		return Output;
 	}
 
 	//Notes for validation functions bellow:

@@ -2,24 +2,27 @@
 
 namespace HolidayHelper::Data
 {
-	shared_ptr<Estimate> Estimate::Create(GUID CustomerId, GUID LocationId, SerializableVector<SerializableGuid> ActivityIds)
+	shared_ptr<Estimate> Estimate::Create(GUID CustomerId, GUID LocationId, SerializableVector<SerializableGuid> ActivityIds, float Price)
 	{
 		GUID EstimateId;
 		if (CoCreateGuid(&EstimateId) != S_OK)
 		{
 			return nullptr;
 		}
-		return shared_ptr<Estimate>(new Estimate(EstimateId, CustomerId, LocationId, ActivityIds));
+		return shared_ptr<Estimate>(new Estimate(EstimateId, CustomerId, LocationId, ActivityIds, Price));
 	}
+
 	std::ostream& Estimate::Serialize(std::ostream& os)
 	{
 		os << m_Id << m_Customer << m_Location << m_Activities;
+		os.write(reinterpret_cast<char*>(&m_Price), sizeof(float));
 		return os;
 	}
 
 	std::istream& Estimate::Deserialize(std::istream& is)
 	{
 		is >> m_Id >> m_Customer >> m_Location >> m_Activities;
+		is.read(reinterpret_cast<char*>(&m_Price), sizeof(float));
 		return is;
 	}
 }

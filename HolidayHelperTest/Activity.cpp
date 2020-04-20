@@ -39,6 +39,7 @@ namespace HolidayHelperTest::Data
 			expectedStream.write(Name.data(), sizeof(char) * Name.length() +1);
 			expectedStream.write(reinterpret_cast<char*>(&PricePerPerson), sizeof(float));
 			expectedStream.write(reinterpret_cast<char*>(&UserCreated), sizeof(bool));
+			expectedStream << SerializableGuid(GUID_NULL);
 
 			std::stringstream actualStream;
 			Activity Actual = Activity(Id, Name, PricePerPerson, UserCreated);

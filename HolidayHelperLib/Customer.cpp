@@ -13,6 +13,11 @@ namespace HolidayHelper::Data
 		return shared_ptr<Customer>(new Customer(CustId, FirstName, LastName, NumAdults, NumChildren));
 	}
 
+	bool Customer::IsDiscountEligible()
+	{
+		return (m_NumAdults >= 2) && (m_NumChildren >= 2);
+	}
+
 	std::ostream& Customer::Serialize(std::ostream& os)
 	{
 		os << m_Id;

@@ -18,7 +18,14 @@ namespace HolidayHelper::Presentation
 
 	void Page::AddPageAction(int key, string value)
 	{
-		m_PageActions.insert(pair<int, string>(key, value));
+		if (m_PageActions.find(key) == m_PageActions.end())
+		{
+			m_PageActions.insert(pair<int, string>(key, value));
+		}
+		else
+		{
+			m_PageActions.find(key)->second = value;
+		}
 	}
 
 	bool Page::IsLoggedIn(shared_ptr<User> currentUser)

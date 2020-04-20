@@ -12,6 +12,11 @@
 #include "LogoutPage.h"
 #include "AdminMainPage.h"
 #include "MainPage.h"
+#include "PreviousEstimatePage.h"
+#include "NewEstimatePage.h"
+#include "ManageCustomersPage.h"
+#include "ManageLocationsPage.h"
+#include "ManageUsersPage.h"
 
 #include <fstream>
 
@@ -170,6 +175,10 @@ bool Application::LoadDataStore()
 		//Create default empty file if it doesn't exist
 		ofstream outStream(pathDataStore.c_str(), std::ios::binary);
 		outStream.close();
+		
+		//Set the update path for internal updates
+		m_DataManager->SetUpdatePath(pathDataStore);
+
 		return false;
 	}
 
@@ -192,9 +201,13 @@ void Application::SetupPages()
 	m_PageManager->AddPage("Login", shared_ptr<Page>(new LoginPage()));
 	m_PageManager->AddPage("CreateUser", shared_ptr<Page>(new CreateUserPage()));
 	m_PageManager->AddPage("Logout", shared_ptr<Page>(new LogoutPage()));
-	//m_PageManager->AddPage("Main", shared_ptr<Page>(new MainPage()));
-	//m_PageManager->AddPage("User", shared_ptr<Page>(new UserPage()));
-	//m_PageManager->AddPage("Customer", shared_ptr<Page>(new CustomerPage()));
+	m_PageManager->AddPage("Main", shared_ptr<Page>(new MainPage()));
+	m_PageManager->AddPage("AdminMain", shared_ptr<Page>(new AdminMainPage()));
+	m_PageManager->AddPage("PreviousEstimate", shared_ptr<Page>(new PreviousEstimatePage()));
+	m_PageManager->AddPage("NewEstimate", shared_ptr<Page>(new NewEstimatePage()));
+	m_PageManager->AddPage("ManageCustomers", shared_ptr<Page>(new ManageCustomersPage()));
+	m_PageManager->AddPage("ManageUsers", shared_ptr<Page>(new ManageUsersPage()));
+	m_PageManager->AddPage("ManageLocations", shared_ptr<Page>(new ManageLocationsPage()));
 }
 
 void Application::AddDefaultData()
@@ -215,4 +228,6 @@ void Application::AddDefaultData()
 
 	auto SkyDiving = Activity::Create("Sky Diving", 110.0f, false);
 	m_DataManager->AddActivity(SkyDiving, { Florida });
+
+	m_DataManager->Update();
 }

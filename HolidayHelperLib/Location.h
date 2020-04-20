@@ -1,10 +1,10 @@
 #pragma once
 #include "Common.h"
 #include "SerializableGuid.h"
+#include "Customer.h"
 
 using HolidayHelper::Persistence::ISerializable;
 using HolidayHelper::Persistence::SerializableGuid;
-
 
 namespace HolidayHelper::Data
 {
@@ -22,6 +22,12 @@ namespace HolidayHelper::Data
 		string GetName() { return m_Name; }
 		int GetPricePerPerson() { return m_PricePerPerson; }
 		int GetMinTravellers() { return m_MinTravellers; }
+
+		void SetName(string Name) { m_Name = Name; }
+		void SetPrice(float PricePerPerson) { m_PricePerPerson = PricePerPerson; }
+		void SetMinTravellers(int MinTravellers) { m_MinTravellers = MinTravellers; }
+
+		bool IsCustomerEligible(shared_ptr<Customer> CustomerObj);
 
 		std::ostream& Serialize(std::ostream& os);
 		std::istream& Deserialize(std::istream& is);

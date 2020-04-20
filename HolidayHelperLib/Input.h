@@ -20,11 +20,17 @@ namespace HolidayHelper::Utils
 		//Returns a whitespace trimed copy of trimStr
 		static std::string Trim(std::string trimStr);
 
+		//Returns a vector of strings by splitting an input based on a delimiter
+		static vector<string> Split(string& SplitString, char Delimiter);
+
 		//Gets an integer input from the user
 		static int GetUserInt();
 
 		//Gets a float input from the user
 		static float GetUserFloat();
+
+		//Gets an array of ints from the user
+		static vector<int> GetUserIntArray();
 
 		//Converts a string to all lower case
 		static std::string ToLower(std::string value);

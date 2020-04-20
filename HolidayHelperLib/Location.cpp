@@ -12,6 +12,11 @@ namespace HolidayHelper::Data
 		return shared_ptr<Location>(new Location(LocationId, Name, PricePerPerson, MinTravellers));
 	}
 
+	bool Location::IsCustomerEligible(shared_ptr<Customer> CustomerObj)
+	{
+		return CustomerObj->GetNumMembers() >= m_MinTravellers;
+	}
+
 	std::ostream& Location::Serialize(std::ostream& os)
 	{
 		os << m_Id;

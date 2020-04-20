@@ -44,6 +44,9 @@
     <ClCompile Include="Estimate.cpp">
       <Filter>Data\Estimate</Filter>
     </ClCompile>
+    <ClCompile Include="EstimateView.cpp">
+      <Filter>Data\Estimate</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Utils">

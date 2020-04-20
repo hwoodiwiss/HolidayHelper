@@ -6,6 +6,7 @@ using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
 namespace HolidayHelperTest::Logic
 {
+
 	TEST_CLASS(FinanceCalculationsTests)
 	{
 		TEST_METHOD(CalculateVATTest)
@@ -53,6 +54,59 @@ namespace HolidayHelperTest::Logic
 			Expected = 0.0f;
 
 			Actual = FinancialCalculations::CalculateVAT(Value, PercentageRate);
+
+			Assert::AreEqual(Expected, Actual);
+		}
+
+		TEST_METHOD(ApplyDiscountTest)
+		{
+			//Very basic, easy to convert to percentage
+			float Value = 100;
+			float DiscountPercent = 10;
+			float Expected = 90;
+
+			float Actual = FinancialCalculations::ApplyDiscount(Value, DiscountPercent);
+
+			Assert::AreEqual(Expected, Actual);
+			
+
+			//Decent example within normal usage
+			Value = 29.99;
+			DiscountPercent = 45;
+			Expected = 16.49;
+
+			Actual = FinancialCalculations::ApplyDiscount(Value, DiscountPercent);
+			
+			Assert::AreEqual(Expected, Actual);
+
+			//Large numbers
+			Value = 41354435;
+			DiscountPercent = 37.5;
+			Expected = 25846521.87;
+
+			Actual = FinancialCalculations::ApplyDiscount(Value, DiscountPercent);
+
+			Assert::AreEqual(Expected, Actual);
+
+		}
+
+		TEST_METHOD(To2DpTest)
+		{
+			float Value = 10.1594;
+			float Expected = 10.15;
+			float Actual = FinancialCalculations::To2Dp(Value);
+
+			Assert::AreEqual(Expected, Actual);
+			
+			Value = 1.3333333333;
+			Expected = 1.33;
+			Actual = FinancialCalculations::To2Dp(Value);
+
+			Assert::AreEqual(Expected, Actual);
+			
+			Value = 5555555.21213;
+			Expected = 5555555.21;
+			Actual = FinancialCalculations::To2Dp(Value);
 
 			Assert::AreEqual(Expected, Actual);
 		}

@@ -6,22 +6,18 @@
 #include "Dataset.h"
 
 using HolidayHelper::Data::DataSet;
+using namespace HolidayHelper::Data;
 
 namespace HolidayHelper::Persistence
 {
 
 	//Note that this converts the type to always be stored internally as shared pointers
-	template<typename T> class SerializableVector : public std::vector<shared_ptr<T>>, public ISerializable
+	template<typename T> class SerializableVector : public DataSet<shared_ptr<T>>, public ISerializable
 	{
 		//Fails compilation if this container is used for a class that does not inherit ISerializable
 		static_assert(std::is_base_of<ISerializable, T>::value, "T must inherit from ISerialiazable");
 	public:
-		SerializableVector() : std::vector<shared_ptr<T>>() {}
-
-		DataSet<shared_ptr<T>> AsDataSet()
-		{
-			return DataSet<shared_ptr<T>>(this);
-		}
+		SerializableVector() : DataSet<shared_ptr<T>>() {}
 
 		std::ostream& Serialize(std::ostream& out)
 		{

@@ -17,6 +17,14 @@ namespace HolidayHelper::Data
 		static shared_ptr<Customer> Create(string FirstName, string LastName, int NumAdults, int NumChildren);
 
 		SerializableGuid GetId() { return m_Id; }
+		string GetFirstName() { return m_FirstName; }
+		string GetLastName() { return m_LastName; }
+		string GetFullName() { return m_FirstName + " " + m_LastName; }
+		string GetNameCommaFull() { return m_LastName + ", " + m_FirstName; }
+		int GetNumAdults() { return m_NumAdults; }
+		int GetNumChildren() { return m_NumChildren; }
+		int GetNumMembers() { return m_NumAdults + m_NumChildren; }
+		bool IsDiscountEligible();
 
 		std::ostream& Serialize(std::ostream& os);
 		std::istream& Deserialize(std::istream& is);

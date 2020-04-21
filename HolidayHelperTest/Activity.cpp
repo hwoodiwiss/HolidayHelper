@@ -69,6 +69,23 @@ namespace HolidayHelperTest::Data
 			Assert::AreEqual(ExpectedObj.IsUserCreated(), ActualObj.IsUserCreated());;
 		}
 
+		TEST_METHOD(Equality)
+		{
+			Activity Obj1 = Activity(Id, Name, PricePerPerson, UserCreated); //The same
+			Activity Obj2 = Activity(Id, Name, PricePerPerson, UserCreated); //The same
+			Activity Obj3 = Activity(Id, "A different test activity", PricePerPerson, UserCreated); //Different
+			Activity Obj4 = Activity(Id, Name, PricePerPerson + 55, UserCreated); //Different
+			Activity Obj5 = Activity(Id, Name, PricePerPerson, !UserCreated); //Different
+			Activity Obj6 = Activity(Id, Name, PricePerPerson, UserCreated, Id); //Different
+			
+			Assert::IsTrue(Obj1 == Obj2);
+
+			Assert::IsFalse(Obj1 == Obj3);
+			Assert::IsFalse(Obj1 == Obj4);
+			Assert::IsFalse(Obj1 == Obj5);
+			Assert::IsFalse(Obj1 == Obj6);
+		}
+
 		TEST_METHOD(Serialization)
 		{
 			Activity Expected = Activity(Id, Name, PricePerPerson, UserCreated);

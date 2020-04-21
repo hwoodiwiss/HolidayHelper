@@ -38,5 +38,30 @@ namespace HolidayHelperTest::Data
 
 			Assert::AreEqual(expected, retVal);
 		}
+
+		TEST_METHOD(First)
+		{
+			DataSet<int> intData({ 501, 503, 505, 507, 509 });
+			int Expected = 501;
+
+			auto Actual = intData.First();
+
+			Assert::AreEqual(Expected, Actual);
+		}
+
+		TEST_METHOD(Contains)
+		{
+			DataSet<int> intData({ 200, 201, 301, 400, 401, 404, 500, 501, 504 });
+			bool Expected = true;
+			bool Actual = intData.Contains(201);
+
+			Assert::AreEqual(Expected, Actual);
+
+			Expected = false;
+			Actual = intData.Contains(514);
+
+			Assert::AreEqual(Expected, Actual);
+
+		}
 	};
 }

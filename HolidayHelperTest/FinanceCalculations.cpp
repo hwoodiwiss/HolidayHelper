@@ -109,6 +109,12 @@ namespace HolidayHelperTest::Logic
 			Actual = FinancialCalculations::To2Dp(Value);
 
 			Assert::AreEqual(Expected, Actual);
+
+			Value = 0.0054;
+			Expected = 0;
+			Actual = FinancialCalculations::To2Dp(Value);
+
+			Assert::AreEqual(Expected, Actual);
 		}
 	};
 }

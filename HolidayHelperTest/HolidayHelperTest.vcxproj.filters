@@ -57,6 +57,9 @@
     <ClCompile Include="SerializableGuid.cpp">
       <Filter>Persistence\Serialization\Serializable\SerializableGuid</Filter>
     </ClCompile>
+    <ClCompile Include="Location.cpp">
+      <Filter>Data\Location</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TestsCommon.h" />

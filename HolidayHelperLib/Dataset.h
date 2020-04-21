@@ -28,8 +28,8 @@ namespace HolidayHelper::Data
 	template<typename T>
 	inline T DataSet<T>::First()
 	{
-		if (*this->size() > 0)
-			return this[0];
+		if (this->size() > 0)
+			return this->at(0);
 
 		throw new std::exception("Array Index out of Bounds!");
 	}

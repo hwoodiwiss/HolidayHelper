@@ -20,7 +20,7 @@ namespace HolidayHelper::Data
 
 		SerializableGuid GetId() { return m_Id; }
 		string GetName() { return m_Name; }
-		int GetPricePerPerson() { return m_PricePerPerson; }
+		float GetPricePerPerson() { return m_PricePerPerson; }
 		int GetMinTravellers() { return m_MinTravellers; }
 
 		void SetName(string Name) { m_Name = Name; }

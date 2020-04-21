@@ -96,6 +96,7 @@
     <ClCompile Include="FinanceCalculations.cpp" />
     <ClCompile Include="DataSet.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="Location.cpp" />
     <ClCompile Include="SerializableGuid.cpp" />
   </ItemGroup>
   <ItemGroup>

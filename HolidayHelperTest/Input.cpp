@@ -135,7 +135,7 @@ namespace HolidayHelperTest::Utils
 
 			for (string InvalidInt : InvalidInts)
 			{
-				cinSpoof << InvalidInt << endl << 1 << endl; //Have to add a valid int, or GetUserInt will never return
+				cinSpoof << InvalidInt << endl << 1 << endl; //Have to add a valid int, or GetUserInt will never return, it will get stuck waiting for "User" input
 				int Actual = Input::GetUserInt();
 
 				Assert::AreEqual(1, Actual);
@@ -249,8 +249,8 @@ namespace HolidayHelperTest::Utils
 		}
 
 		private:
-			vector<string> ValidInts = { "1", "256", "-556622", "1235448" };
-			vector<string> InvalidInts = { "four-thousand", "-ten", "minus ten", "" };
+			vector<string> ValidInts = { "1", "256", "-556622", "1235448", "69", "420" };
+			vector<string> InvalidInts = { "four-thousand", "-ten", "minus ten", "",  "1.025", "256.1293" };
 
 			vector<string> ValidFloats = { "1", "256", "-556622", "1235448", "1.025", "256.1293", "-556622.1231", "1235448.4322342" };
 			vector<string> InvalidFloats = { "", "four-thousand", "-ten", "minus ten", "1235448.four", "-fifty.12749", "-134544point1224" };

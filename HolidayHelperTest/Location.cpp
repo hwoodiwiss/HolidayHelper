@@ -98,6 +98,39 @@ namespace HolidayHelperTest::Data
 			Assert::IsTrue(Expected == Actual);
 		}
 
+		TEST_METHOD(NameGetSet)
+		{
+			Location TestLocation;
+
+			string Expected = "Expected Location Name";
+
+			TestLocation.SetName(Expected);
+
+			Assert::AreEqual(Expected, TestLocation.GetName());
+		}
+		
+		TEST_METHOD(MinTravellersGetSet)
+		{
+			Location TestLocation;
+
+			int Expected = 6;
+
+			TestLocation.SetMinTravellers(Expected);
+
+			Assert::AreEqual(Expected, TestLocation.GetMinTravellers());
+		}
+		
+		TEST_METHOD(PricePerPersonGetSet)
+		{
+			Location TestLocation;
+
+			float Expected = 210.55f;
+
+			TestLocation.SetPrice(Expected);
+
+			Assert::AreEqual(Expected, TestLocation.GetPricePerPerson());
+		}
+
 	private:
 		GUID Id = { 0xb46492cc, 0xbe02, 0x4c98, {0x92, 0xf0, 0x6c, 0x36, 0x83, 0x5b, 0x3b, 0x6e} };
 		string Name = "Test Location";

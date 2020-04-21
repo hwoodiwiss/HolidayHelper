@@ -40,6 +40,9 @@
     <Filter Include="Data\Customer">
       <UniqueIdentifier>{4ad42e49-f55e-4809-a0ae-d8877b5dc2a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Data\Estimate">
+      <UniqueIdentifier>{5e990c8b-e26d-45b4-a94d-f5f024525ddb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DataSet.cpp">
@@ -59,6 +62,12 @@
     </ClCompile>
     <ClCompile Include="Location.cpp">
       <Filter>Data\Location</Filter>
+    </ClCompile>
+    <ClCompile Include="Customer.cpp">
+      <Filter>Data\Customer</Filter>
+    </ClCompile>
+    <ClCompile Include="Estimate.cpp">
+      <Filter>Data\Estimate</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

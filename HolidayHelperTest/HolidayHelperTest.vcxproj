@@ -98,6 +98,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Activity.cpp" />
+    <ClCompile Include="Customer.cpp" />
+    <ClCompile Include="Estimate.cpp" />
     <ClCompile Include="FinanceCalculations.cpp" />
     <ClCompile Include="DataSet.cpp" />
     <ClCompile Include="Input.cpp" />

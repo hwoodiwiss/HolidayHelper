@@ -19,9 +19,11 @@ namespace HolidayHelper::Persistence
 		SerializableGuid();
 		SerializableGuid(GUID Guid);
 		bool operator==(const SerializableGuid& rSerGuid);
+		bool operator!=(const SerializableGuid& rSerGuid);
 
 		//Equivilence operator between this type and the WinAPI GUID (Right to left and left to right
 		bool operator==(const GUID& rGuid);
+
 		friend bool DllExport operator==(const GUID& lGuid, const SerializableGuid& rSerGuid);
 
 		//Allows implicit assignment from GUID to SerializableGuid

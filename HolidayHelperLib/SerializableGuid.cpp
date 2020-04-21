@@ -19,6 +19,11 @@ namespace HolidayHelper::Persistence
 		return m_InternalGuid == rSerGuid.m_InternalGuid;
 	}
 
+	bool SerializableGuid::operator!=(const SerializableGuid& rSerGuid)
+	{
+		return m_InternalGuid != rSerGuid.m_InternalGuid;
+	}
+
 	bool SerializableGuid::operator==(const GUID& rGuid)
 	{
 		return m_InternalGuid == rGuid;

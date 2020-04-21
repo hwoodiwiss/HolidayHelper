@@ -14,11 +14,23 @@ namespace HolidayHelper::Data
 
 	bool Estimate::operator==(const Estimate& rhs)
 	{
+		int NumActivites = this->m_Activities.size();
+		if (!NumActivites == rhs.m_Activities.size())
+		{
+			return false;
+		}
+		for (int index = 0; index < NumActivites; index++)
+		{
+			if ((*(this->m_Activities[index])) != (*(rhs.m_Activities[index])))
+			{
+				return false;
+			}
+		}
+
 		return (m_Id == rhs.m_Id
 			&& m_Customer == rhs.m_Customer
 			&& m_Location == rhs.m_Location
-			&& m_Price == rhs.m_Price
-			&& m_Activities == rhs.m_Activities);
+			&& m_Price == rhs.m_Price);
 	}
 
 	std::ostream& Estimate::Serialize(std::ostream& os)
